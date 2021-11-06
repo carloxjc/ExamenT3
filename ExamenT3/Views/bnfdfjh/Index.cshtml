@@ -1,0 +1,26 @@
+﻿ 
+<div class="form-group">
+
+
+    <div class="md-form" >
+        <input placeholder="ingresa titulo nota"/>
+    </div>
+    <div class="md-form">
+
+        <h6 for="contact-name" class="font-weight-bold">Seleccione cuenta para ver su saldo</h6>
+
+        <form action="/Nota/index" method="get" enctype="text/plain">
+            <select class="combobox form-control" name="Cuenta">
+                <option value="0" selected="selected">Notas</option>
+                @foreach (var nota in ViewBag.Notas)
+                {
+                    <option value="@nota.id" name="@nota.Titulo">@nota.Contenido</option>
+                }
+            </select>
+            <button id="CalcularSaldo" type="submit">Ver Nota </button>
+        </form>
+
+
+
+    </div>
+</div>

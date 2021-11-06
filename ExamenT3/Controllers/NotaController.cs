@@ -10,27 +10,35 @@ namespace ExamenT3.Controllers
     public class NotaController : Controller
     {
 
-        public List<Notas> notas;
-        public NotaController( )
+        private  List<Notas> notas=new List<Notas>();
+
+
+        public NotaController()
         {
-   
+           // notas = new List<Notas>();
         }
+        //public IActionResult Index() {
+
+        //    return View("Index");
+        //}
+        [HttpGet]
         public IActionResult Index()
         {
-            return View(notas);
+          
+            var not = new Notas();
+            not.id = 1;
+            not.Titulo = "Nota1 Test";
+            not.Contenido = "esta nota es la primera";
+            notas.Add(not);
+            ViewBag.Notas = notas;
+            return View();
         }
-        [HttpGet]
-        public IActionResult _Index(string search)
-        { 
 
-         
-            return View( );
-        }
         [HttpGet]
         public IActionResult Create()
         {
-         
-            return View("Create", new Notas());
+            ViewBag.Notas = new Notas();
+            return View();
         }
         [HttpPost]
         public IActionResult Create(Notas nota)
@@ -40,13 +48,9 @@ namespace ExamenT3.Controllers
              
         }
 
-        
 
         public List<Notas> addNotas(Notas nota) {
-
-            
-            var notas = new List<Notas> ();
-
+             
             notas.Add(nota);
 
             return notas;
