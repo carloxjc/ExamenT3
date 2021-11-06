@@ -1,34 +1,26 @@
 ﻿
-<div class="form-group">
+@model List<ExamenT3.Models.Notas>
 
+<br />
 
-    <div class="md-form">
-        <input placeholder="ingresa titulo nota" />
-    </div>
-    <div class="md-form">
+<h1 class="nota">NOTAS</h1>
 
-        <h6 for="contact-name" class="font-weight-bold"seleccione una nota</h6>
+<a href="/Nota/Create" class="btn btn-primary">Crear</a>
 
-        <form action="/Nota/index" method="get" enctype="text/plain">
-            @foreach (var nota in ViewBag.Notas)
-                {
-                <table>
-                    <tr>
-                        <td>Titulo</td>
-                        <td>Contenido</td>
-                    </tr>
-                    <tr>
-                        <td value="@nota.id" name="@nota.Titulo">@nota.Titulo</td>
-                        <td value="@nota.id" name="@nota.Contenido">@nota.Contenido</td>
-                    </tr>
-                </table>
-                
-               
-                }
-          
-        </form>
+<br />
+<div class="container">
+    @foreach (var item in Model)
+    {
+        <div class="container">
 
+            <h4>Titulo: </h4>@item.Titulo
+            <br />
+            <h2>Contenido: </h2>@item.Contenido
+            <br />
+            <br />
 
-
-    </div>
+        </div>
+        <br />
+    }
+    <br />
 </div>

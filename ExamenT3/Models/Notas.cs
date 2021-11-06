@@ -7,11 +7,14 @@ namespace ExamenT3.Models
 {
     public class Notas
     {
-        public int id { set; get; }
-      
+
+
+        public int ID { get; set; }
+
         public string Titulo { set; get; } 
         public string Contenido { set; get; }
      
-        
+       
     }
+
 }

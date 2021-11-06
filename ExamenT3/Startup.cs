@@ -1,6 +1,9 @@
+using ExamenT3.Models;
+using ExamenT3.repositorio;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,6 +27,12 @@ namespace ExamenT3
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+
+            services.AddDbContext<appContext>(
+                options => options.UseSqlServer(Configuration.GetConnectionString("DevConnection"))
+            );
+            services.AddTransient<NotaInterface, repositorioNota>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,7 +59,7 @@ namespace ExamenT3
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Nota}/{action=Index}/{id?}");
             });
         }
     }

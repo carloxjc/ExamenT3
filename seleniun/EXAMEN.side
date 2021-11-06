@@ -1,0 +1,172 @@
+{
+  "id": "68cd88a4-0fdc-411c-b83e-edc77cbb7c73",
+  "version": "2.0",
+  "name": "EXAMEN",
+  "url": "https://localhost:44360/",
+  "tests": [{
+    "id": "8c665c04-dc8a-4a33-8a3a-949b53f38712",
+    "name": "Untitled",
+    "commands": []
+  }, {
+    "id": "1957604e-2331-4bed-b548-ed85a03d672f",
+    "name": "PRUEBA1",
+    "commands": [{
+      "id": "bdd3a301-8244-415e-8e66-ccd5132da4a8",
+      "comment": "",
+      "command": "open",
+      "target": "https://localhost:44360/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "97921063-6aae-4a70-b3f6-ccd47ab0514e",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.nota",
+      "targets": [
+        ["css=.nota", "css:finder"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'NOTAS')]", "xpath:innerText"]
+      ],
+      "value": "NOTAS"
+    }, {
+      "id": "e101274a-1743-4d15-b44f-54f7fbb2f316",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "719896de-ae7e-44ca-85b4-cd8ab7987150",
+    "name": "PRUEBA 2",
+    "commands": [{
+      "id": "c9a850f9-d9d2-4d67-b1a1-6a82ec06496f",
+      "comment": "",
+      "command": "open",
+      "target": "https://localhost:44360/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4ee4bbde-ab8c-4b45-92c1-949b41639762",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Crear",
+      "targets": [
+        ["linkText=Crear", "linkText"],
+        ["css=.btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Crear')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/Nota/Create')]", "xpath:href"],
+        ["xpath=//main/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Crear')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7e0388be-19d7-49d6-ada8-cfe6ab1248f3",
+      "comment": "",
+      "command": "click",
+      "target": "name=titulo",
+      "targets": [
+        ["name=titulo", "name"],
+        ["css=input", "css:finder"],
+        ["xpath=//input[@name='titulo']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "836a6708-92f6-4594-ac02-6ce1bc817236",
+      "comment": "",
+      "command": "type",
+      "target": "name=titulo",
+      "targets": [
+        ["name=titulo", "name"],
+        ["css=input", "css:finder"],
+        ["xpath=//input[@name='titulo']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Prurba 4"
+    }, {
+      "id": "36a8602e-270e-4298-a323-cf8ee9bddea8",
+      "comment": "",
+      "command": "click",
+      "target": "id=contedPlug",
+      "targets": [
+        ["id=contedPlug", "id"],
+        ["name=contenido", "name"],
+        ["css=#contedPlug", "css:finder"],
+        ["xpath=//textarea[@id='contedPlug']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "78b18f02-06a6-4507-93af-8014f3dd1340",
+      "comment": "",
+      "command": "type",
+      "target": "id=contedPlug",
+      "targets": [
+        ["id=contedPlug", "id"],
+        ["name=contenido", "name"],
+        ["css=#contedPlug", "css:finder"],
+        ["xpath=//textarea[@id='contedPlug']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "contenido de prueba 4"
+    }, {
+      "id": "6824bcba-0747-495b-9bf2-a916891e04cb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Crear')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "10bc967e-38e2-43f3-98f5-ae61245d816d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.container:nth-child(2)",
+      "targets": [
+        ["css=.container:nth-child(2)", "css:finder"],
+        ["xpath=//body/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "99391a1f-1d93-4daa-9083-be069c40a85f",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.nota",
+      "targets": [
+        ["css=.nota", "css:finder"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'NOTAS')]", "xpath:innerText"]
+      ],
+      "value": "NOTAS"
+    }, {
+      "id": "67f2346d-70ab-4703-ab30-eb0672b66717",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "36e013ae-7ab1-4b6c-9a99-44130ad254f3",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["8c665c04-dc8a-4a33-8a3a-949b53f38712"]
+  }, {
+    "id": "eb817b19-1a0f-4617-8be7-783d65333b68",
+    "name": "EXAEMEN",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["1957604e-2331-4bed-b548-ed85a03d672f"]
+  }],
+  "urls": ["https://localhost:44360/"],
+  "plugins": []
+}

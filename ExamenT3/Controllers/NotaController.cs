@@ -1,4 +1,5 @@
 ﻿using ExamenT3.Models;
+using ExamenT3.repositorio;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,52 +10,56 @@ namespace ExamenT3.Controllers
 {
     public class NotaController : Controller
     {
-
-        private  List<Notas> notas=new List<Notas>();
-
-
-        public NotaController()
+        readonly NotaInterface notaInterface;
+        public NotaController(NotaInterface notaInterface)
         {
-           // notas = new List<Notas>();
-        }
-        //public IActionResult Index() {
+            this.notaInterface = notaInterface;
 
-        //    return View("Index");
-        //}
+        }
+
         [HttpGet]
         public IActionResult Index()
         {
-          
-            var not = new Notas();
-            not.id = 1;
-            not.Titulo = "Nota1 Test";
-            not.Contenido = "esta nota es la primera";
-            notas.Add(not);
-            ViewBag.Notas = notas;
-            return View();
+            var model = notaInterface.getListaDeNotas();
+            return View(model);
         }
 
         [HttpGet]
         public IActionResult Create()
         {
-            ViewBag.Notas = new Notas();
-            return View();
+            return View("Create");
         }
         [HttpPost]
-        public IActionResult Create(Notas nota)
+        public IActionResult Create(string titulo, string descrip)
         {
-            addNotas(nota);
-            return View();
+            notaInterface.guardarNota(titulo, descrip);
+         
+            return RedirectToAction("Index","Nota");
              
         }
 
-
-        public List<Notas> addNotas(Notas nota) {
-             
-            notas.Add(nota);
-
-            return notas;
-            
+        [HttpGet]
+        public IActionResult Editar(int id)
+        {
+            var nota = notaInterface.editar(id);
+            return View(nota);
         }
+        [HttpPost]
+        public IActionResult Editar(string ti, string cont ,int id)
+        {
+            notaInterface.editar(id);
+
+            return RedirectToAction("Index", "Nota");
+        }
+
+  
+        public IActionResult Eliminar(int id)
+        {
+            notaInterface.eliminar(id);
+
+            return RedirectToAction("Index", "Nota");
+        }
+     
+        
     }
 }

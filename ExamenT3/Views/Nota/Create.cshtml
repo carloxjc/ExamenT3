@@ -1,48 +1,26 @@
 ﻿
 
-@using (Html.BeginForm())
-{
-
-
-    <div class="form-horizontal">
-        <h4 id="AddCuenta">Nota</h4>
-        <hr />
-        <form action="/Nota/create" method="post" enctype="text/plain">
-
-            <div class="form-group">
-
-                <div class="col-md-10">
-                    <label>Titulo</label>
-                    <input value="@ViewBag.Notas.Titulo" name="Titulo" id="Nombre" />
-                  
-                </div>
-            </div>
-
-            <div class="form-group">
-
-                <div class="col-md-10">
-                    <label>Contenido</label>
-                    <input value="@ViewBag.Notas.Contenido" name="Contenido" id="Contenido" />
-                  
-                </div>
-            </div>
-            
- 
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input id="btnAddCuenta" type="submit" value="Create" class="btn btn-default" />
-                </div>
-            </div>
-        </form>
-
-
-
-
-    </div>
+@{
+    ViewData["Title"] = "Create";
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
- 
+
+<form method="post" action="/Nota/Create">
+    <h1>Crear Nota</h1>
+
+    <h3>Titulo: </h3>
+    <br />
+    <input name="titulo" type="text" />
+    <br />
+    <br />
+    <h3>Contenido: </h3>
+    <br />
+    <textarea class="agregar_contenido form-control" id="contedPlug" name="contenido">
+</textarea>
+
+
+
+    <br />
+    <br />
+    <button type="submit" class="btn btn-primary">Crear</button>
+</form>
